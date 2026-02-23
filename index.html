@@ -110,6 +110,54 @@
     font-size: 0.8rem;
     text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
   }
+
+  /* MEMBER CARDS */
+  .member-card {
+    background: rgba(0,0,0,0.2);
+    border-radius: 6px;
+    border-left: 3px solid var(--gold);
+    overflow: hidden;
+  }
+  .member-photo {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+  }
+  .member-photo-placeholder {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, var(--warm-gray), var(--dark));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--muted);
+    font-size: 0.8rem;
+  }
+  .member-info {
+    padding: 1.5rem;
+  }
+  .member-name {
+    color: var(--cream);
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+  }
+  .member-instrument {
+    color: var(--gold);
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    margin-bottom: 0.8rem;
+  }
+  .member-bio {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin: 0;
+  }
+  .member-bio a {
+    color: var(--gold);
+  }
   .hero .tagline {
     font-size: 1.2rem;
     color: var(--gold);
@@ -402,19 +450,31 @@
     <p>We play standards, songbook classics, some original compositions and arrangements. Whether it's a dinner set, a cocktail hour, a festival stage, or a late-night session, we bring the real thing: improvisation, interaction, and music that makes people lean in and listen.</p>
 
     <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:1.5rem; margin-top:2.5rem;">
-      <div style="background:rgba(0,0,0,0.2); padding:1.5rem; border-radius:6px; border-left:3px solid var(--gold);">
-        <div style="color:var(--cream); font-size:1.1rem; font-weight:bold; margin-bottom:0.3rem;">Ron Geida</div>
-        <div style="color:var(--gold); font-size:0.85rem; letter-spacing:1px; margin-bottom:0.8rem;">Guitar</div>
-        <p style="font-size:0.85rem; color:var(--muted); margin:0;">Performs regularly with <a href="https://www.badnewsjazz.com/band-bios" target="_blank" style="color:var(--gold);">Bad News Jazz</a> and for musical theatre. Decades of experience in bands including Villain Vanguard and North St. Collective. Described as "a studio-quality player in several genres."</p>
+      <div class="member-card">
+        <!-- TODO: Add Ron's photo: <img src="images/ron.jpg" alt="Ron Geida" class="member-photo"> -->
+        <div class="member-photo-placeholder">Photo coming soon</div>
+        <div class="member-info">
+          <div class="member-name">Ron Geida</div>
+          <div class="member-instrument">Guitar</div>
+          <p class="member-bio">Performs regularly with <a href="https://www.badnewsjazz.com/band-bios" target="_blank">Bad News Jazz</a> and for musical theatre. Decades of experience in bands including Villain Vanguard and North St. Collective. Described as "a studio-quality player in several genres."</p>
+        </div>
       </div>
-      <div style="background:rgba(0,0,0,0.2); padding:1.5rem; border-radius:6px; border-left:3px solid var(--gold);">
-        <div style="color:var(--cream); font-size:1.1rem; font-weight:bold; margin-bottom:0.3rem;">David Reinstein</div>
-        <div style="color:var(--gold); font-size:0.85rem; letter-spacing:1px;">Tuba · Trombone · Flugelhorn</div>
+      <div class="member-card">
+        <!-- TODO: Add David's photo: <img src="images/david.jpg" alt="David Reinstein" class="member-photo"> -->
+        <div class="member-photo-placeholder">Photo coming soon</div>
+        <div class="member-info">
+          <div class="member-name">David Reinstein</div>
+          <div class="member-instrument">Tuba · Trombone · Flugelhorn</div>
+          <p class="member-bio">Decades of playing in a range of combos and big bands. His pet project: bringing the tuba back into the modern jazz rhythm section.</p>
+        </div>
       </div>
-      <div style="background:rgba(0,0,0,0.2); padding:1.5rem; border-radius:6px; border-left:3px solid var(--gold);">
-        <div style="color:var(--cream); font-size:1.1rem; font-weight:bold; margin-bottom:0.3rem;">John Calabrese</div>
-        <div style="color:var(--gold); font-size:0.85rem; letter-spacing:1px; margin-bottom:0.8rem;">Drums</div>
-        <p style="font-size:0.85rem; color:var(--muted); margin:0;">Retired music teacher and school band director. Teaches drums at <a href="https://appletreearts.org/about/faculty/faculty-john-calabrese/" target="_blank" style="color:var(--gold);">Apple Tree Arts</a>. Brings decades of experience across genres from fundamentals to improvisation.</p>
+      <div class="member-card">
+        <img src="https://appletreearts.org/wp-content/uploads/2025/02/John-Calabrese-360x377-1.png" alt="John Calabrese" class="member-photo">
+        <div class="member-info">
+          <div class="member-name">John Calabrese</div>
+          <div class="member-instrument">Drums</div>
+          <p class="member-bio">Retired music teacher and school band director. Teaches drums at <a href="https://appletreearts.org/about/faculty/faculty-john-calabrese/" target="_blank">Apple Tree Arts</a>. Brings decades of experience across genres from fundamentals to improvisation.</p>
+        </div>
       </div>
     </div>
   </div>
