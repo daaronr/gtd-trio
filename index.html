@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GTD Trio — Western Mass Jazz</title>
+<meta name="description" content="GTD Trio — Guitar, Tuba, Drums. Live jazz in Western Massachusetts. Standards, bop, originals. Available for gigs, events, and jam sessions in the Pioneer Valley and beyond.">
+<style>
+  :root {
+    --gold: #d4a843;
+    --dark: #1a1a2e;
+    --darker: #0f0f1e;
+    --cream: #f5f0e8;
+    --warm-gray: #2a2a3e;
+    --text: #e0ddd5;
+    --muted: #9a9590;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--darker);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(15,15,30,0.95);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    border-bottom: 1px solid rgba(212,168,67,0.2);
+  }
+  nav .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+  nav .logo {
+    font-size: 1.3rem;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  nav .nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  nav .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 6rem 2rem 4rem;
+    background: linear-gradient(135deg, var(--darker) 0%, var(--dark) 50%, #1a1a2e 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 50% 30%, rgba(212,168,67,0.08) 0%, transparent 70%);
+  }
+  .hero h1 {
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    color: var(--cream);
+    letter-spacing: 3px;
+    margin-bottom: 0.5rem;
+    position: relative;
+  }
+  .hero .tagline {
+    font-size: 1.2rem;
+    color: var(--gold);
+    font-style: italic;
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  .hero .sub {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 600px;
+    margin-bottom: 3rem;
+    position: relative;
+  }
+  .hero .cta-group {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+  }
+  .btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    transition: all 0.3s;
+    font-family: inherit;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--darker);
+    border: 2px solid var(--gold);
+  }
+  .btn-primary:hover { background: transparent; color: var(--gold); }
+  .btn-outline {
+    background: transparent;
+    color: var(--gold);
+    border: 2px solid var(--gold);
+  }
+  .btn-outline:hover { background: var(--gold); color: var(--darker); }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; }
+  .container { max-width: 1000px; margin: 0 auto; }
+  h2 {
+    font-size: 2rem;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+  }
+  .section-rule {
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin-bottom: 2rem;
+  }
+
+  /* ABOUT */
+  .about { background: var(--dark); }
+  .about p { margin-bottom: 1rem; color: var(--text); }
+  .instruments {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+  .instrument-tag {
+    background: rgba(212,168,67,0.1);
+    border: 1px solid rgba(212,168,67,0.3);
+    padding: 0.5rem 1.2rem;
+    border-radius: 3px;
+    font-size: 0.85rem;
+    color: var(--gold);
+    letter-spacing: 1px;
+  }
+
+  /* LISTEN */
+  .listen { background: var(--darker); text-align: center; }
+  .video-embed {
+    max-width: 720px;
+    margin: 2rem auto 0;
+    aspect-ratio: 16/9;
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(212,168,67,0.2);
+  }
+  .video-embed iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  /* CALENDAR */
+  .calendar { background: var(--dark); }
+  .gig-list { list-style: none; margin-top: 1rem; }
+  .gig-item {
+    display: flex;
+    gap: 2rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    align-items: flex-start;
+  }
+  .gig-date {
+    min-width: 80px;
+    text-align: center;
+    background: rgba(212,168,67,0.1);
+    border: 1px solid rgba(212,168,67,0.2);
+    border-radius: 4px;
+    padding: 0.6rem 0.8rem;
+  }
+  .gig-date .month {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gold);
+  }
+  .gig-date .day {
+    font-size: 1.6rem;
+    color: var(--cream);
+    font-weight: bold;
+  }
+  .gig-info h3 { color: var(--cream); font-size: 1.1rem; margin-bottom: 0.3rem; }
+  .gig-info p { color: var(--muted); font-size: 0.9rem; }
+  .gig-placeholder {
+    text-align: center;
+    padding: 3rem;
+    color: var(--muted);
+    font-style: italic;
+    border: 1px dashed rgba(212,168,67,0.2);
+    border-radius: 6px;
+    margin-top: 1rem;
+  }
+
+  /* JAM NIGHT */
+  .jam { background: var(--darker); }
+  .jam-card {
+    background: var(--warm-gray);
+    border: 1px solid rgba(212,168,67,0.2);
+    border-radius: 6px;
+    padding: 2.5rem;
+    margin-top: 1.5rem;
+  }
+  .jam-card h3 { color: var(--gold); font-size: 1.3rem; margin-bottom: 1rem; }
+  .jam-card p { margin-bottom: 0.8rem; }
+  .jam-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .jam-detail-item {
+    background: rgba(0,0,0,0.2);
+    padding: 1.2rem;
+    border-radius: 4px;
+  }
+  .jam-detail-item .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+
+  /* VENUES */
+  .venues { background: var(--dark); }
+  .venue-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .venue-card {
+    background: var(--warm-gray);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 6px;
+    padding: 1.5rem;
+    transition: border-color 0.3s;
+  }
+  .venue-card:hover { border-color: rgba(212,168,67,0.3); }
+  .venue-card h3 { color: var(--cream); font-size: 1rem; margin-bottom: 0.3rem; }
+  .venue-card .venue-loc { color: var(--gold); font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 0.6rem; }
+  .venue-card p { color: var(--muted); font-size: 0.9rem; }
+  .venue-card a { color: var(--gold); text-decoration: none; font-size: 0.85rem; }
+  .venue-card a:hover { text-decoration: underline; }
+  .venue-tier {
+    margin-top: 2.5rem;
+  }
+  .venue-tier h3 {
+    color: var(--gold);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  /* MUSICIANS */
+  .musicians { background: var(--darker); }
+  .wanted-card {
+    background: linear-gradient(135deg, var(--warm-gray), rgba(212,168,67,0.05));
+    border: 1px solid rgba(212,168,67,0.3);
+    border-radius: 6px;
+    padding: 2.5rem;
+    margin-top: 1.5rem;
+    text-align: center;
+  }
+  .wanted-card h3 { color: var(--gold); font-size: 1.5rem; margin-bottom: 1rem; }
+  .wanted-card p { max-width: 600px; margin: 0 auto 1.5rem; }
+
+  /* BOOKING / CONTACT */
+  .contact { background: var(--dark); text-align: center; }
+  .contact p { max-width: 600px; margin: 0 auto 2rem; }
+  .contact-email {
+    font-size: 1.3rem;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    padding-bottom: 2px;
+  }
+  .contact-email:hover { opacity: 0.8; }
+
+  /* FOOTER */
+  footer {
+    background: var(--darker);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    text-align: center;
+    padding: 2rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav .nav-links a { margin-left: 1rem; font-size: 0.8rem; }
+    .gig-item { flex-direction: column; gap: 0.8rem; }
+    .hero h1 { font-size: 2.2rem; }
+  }
+  @media (max-width: 500px) {
+    nav .nav-inner { flex-direction: column; gap: 0.8rem; }
+    nav .nav-links { display: flex; flex-wrap: wrap; justify-content: center; }
+    nav .nav-links a { margin: 0 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo">GTD Trio</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#listen">Listen</a>
+      <a href="#calendar">Gigs</a>
+      <a href="#jam">Jam Night</a>
+      <a href="#musicians">Join Us</a>
+      <a href="#contact">Book Us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>GTD Trio</h1>
+  <p class="tagline">Guitar · Tuba · Drums — Live jazz from Western Massachusetts</p>
+  <p class="sub">Standards, bop, originals, and everything from swing-era classics to the avant-garde. Based in the Pioneer Valley — available for gigs, private events, and jam sessions.</p>
+  <div class="cta-group">
+    <a href="#contact" class="btn btn-primary">Book Us</a>
+    <a href="#listen" class="btn btn-outline">Hear the Band</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <h2>The Band</h2>
+    <div class="section-rule"></div>
+    <p>We're a jazz combo rooted in the Great American Songbook, with a deep love for the music of the late 1940s through the 1960s — and a willingness to go anywhere the music takes us, from old-timey swing to modern post-bop and beyond.</p>
+    <p>Our sound is built on a distinctive foundation: tuba providing the bass lines — walking bass, swing, Latin grooves, funk — alongside drums and guitar. Add in trombone and flugelhorn for front-line flexibility, and you get a combo that's compact enough for a corner of a restaurant and full enough to fill a club.</p>
+    <p>We play standards, songbook classics, some original compositions and arrangements. Whether it's a dinner set, a cocktail hour, a festival stage, or a late-night session, we bring the real thing: improvisation, interaction, and music that makes people lean in and listen.</p>
+
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap:1.5rem; margin-top:2.5rem;">
+      <div style="background:rgba(0,0,0,0.2); padding:1.5rem; border-radius:6px; border-left:3px solid var(--gold);">
+        <div style="color:var(--cream); font-size:1.1rem; font-weight:bold; margin-bottom:0.3rem;">Ron Geida</div>
+        <div style="color:var(--gold); font-size:0.85rem; letter-spacing:1px;">Guitar</div>
+      </div>
+      <div style="background:rgba(0,0,0,0.2); padding:1.5rem; border-radius:6px; border-left:3px solid var(--gold);">
+        <div style="color:var(--cream); font-size:1.1rem; font-weight:bold; margin-bottom:0.3rem;">David Reinstein</div>
+        <div style="color:var(--gold); font-size:0.85rem; letter-spacing:1px;">Tuba · Trombone · Flugelhorn</div>
+      </div>
+      <div style="background:rgba(0,0,0,0.2); padding:1.5rem; border-radius:6px; border-left:3px solid var(--gold);">
+        <div style="color:var(--cream); font-size:1.1rem; font-weight:bold; margin-bottom:0.3rem;">John Calabrese</div>
+        <div style="color:var(--gold); font-size:0.85rem; letter-spacing:1px;">Drums</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LISTEN -->
+<section class="listen" id="listen">
+  <div class="container">
+    <h2>Hear Us Play</h2>
+    <div class="section-rule" style="margin-left:auto;margin-right:auto;"></div>
+    <p>Live recordings from rehearsals and sessions. Higher-quality audio available on request.</p>
+    <div class="video-embed">
+      <iframe src="https://www.youtube.com/embed/videoseries?list=PLwCHmz77VrK1TvvBeyKYlk52rQ6PeHJzk" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- GIG CALENDAR -->
+<section class="calendar" id="calendar">
+  <div class="container">
+    <h2>Upcoming Gigs</h2>
+    <div class="section-rule"></div>
+
+    <!-- PLACEHOLDER: Replace with real gigs as they're booked -->
+    <div class="gig-placeholder">
+      <p>New dates coming soon — check back or <a href="#contact" style="color:var(--gold);">get in touch</a> to book us for your venue or event.</p>
+    </div>
+
+    <!--
+    TEMPLATE: Copy this block for each gig and place it inside a <ul class="gig-list"> above the placeholder:
+
+    <li class="gig-item">
+      <div class="gig-date">
+        <div class="month">MAR</div>
+        <div class="day">15</div>
+      </div>
+      <div class="gig-info">
+        <h3>Seven Railroads Brewing Company</h3>
+        <p>1235 Park St, Palmer, MA — 7:00 PM – 9:30 PM</p>
+      </div>
+    </li>
+    -->
+  </div>
+</section>
+
+<!-- JAM NIGHT -->
+<section class="jam" id="jam">
+  <div class="container">
+    <h2>Open Jam Session</h2>
+    <div class="section-rule"></div>
+    <p>We host informal jam sessions for jazz musicians in the area. No audience, no pressure — just playing. If you've been looking for people to blow with, come through.</p>
+
+    <div class="jam-card">
+      <h3>Musicians' Jam — Monson, MA</h3>
+      <p>An open session for jazz players of all instruments and levels. Bring your horn, your charts, your ears. Standards, heads, blues, free — whatever the room wants to play.</p>
+      <div class="jam-details">
+        <div class="jam-detail-item">
+          <div class="label">Where</div>
+          <div>Monson, MA (address provided on RSVP)</div>
+        </div>
+        <div class="jam-detail-item">
+          <div class="label">When</div>
+          <div>TBD — get in touch to be added to the invite list</div>
+        </div>
+        <div class="jam-detail-item">
+          <div class="label">Bring</div>
+          <div>Your instrument, a few tunes you'd like to call, an open mind</div>
+        </div>
+        <div class="jam-detail-item">
+          <div class="label">RSVP</div>
+          <div><a href="#contact" style="color:var(--gold);">Drop us a line</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TARGET VENUES -->
+<section class="venues" id="venues">
+  <div class="container">
+    <h2>Where We Play</h2>
+    <div class="section-rule"></div>
+    <p style="margin-bottom:1rem;">We're actively booking at venues across Western and Central Massachusetts. Here are some of the spots we're targeting — and if you run a venue and want live jazz, <a href="#contact" style="color:var(--gold);">let's talk</a>.</p>
+
+    <div class="venue-tier">
+      <h3>Home Base — Palmer &amp; Monson (under 15 min)</h3>
+      <div class="venue-grid">
+        <div class="venue-card">
+          <h3>Seven Railroads Brewing Co.</h3>
+          <div class="venue-loc">1235 Park St, Palmer, MA</div>
+          <p>Cozy taproom with a dedicated live music corner. The owners are music lovers. Booking: <a href="mailto:mike@sevenrailroads.beer" style="color:var(--gold);">mike@sevenrailroads.beer</a></p>
+          <a href="https://www.sevenrailroads.beer/events" target="_blank">sevenrailroads.beer/events</a>
+        </div>
+        <div class="venue-card">
+          <h3>Steaming Tender Restaurant</h3>
+          <div class="venue-loc">28 Depot St, Palmer, MA</div>
+          <p>#1-rated restaurant in Palmer. Historic train station. Patio music in season (they've hosted swing bands). Thu–Sun, upscale dinner crowd. Call (413) 283-2744.</p>
+          <a href="https://www.steamingtender.com/events/" target="_blank">steamingtender.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="venue-tier">
+      <h3>Springfield &amp; Surrounds (under 30 min)</h3>
+      <div class="venue-grid">
+        <div class="venue-card">
+          <h3>Theodore's Blues, Booze &amp; BBQ</h3>
+          <div class="venue-loc">201 Worthington St, Springfield, MA</div>
+          <p>Named "Best Blues Club in the Country" (Blues Foundation KBA Award). ~300 capacity. Books nightly — pay negotiated per gig. Need to draw ~50. Email <a href="mailto:mgmt@theodoresbbq.com" style="color:var(--gold);">mgmt@theodoresbbq.com</a> or call (413) 736-6000.</p>
+          <a href="https://theodoresbbq.com/blues/" target="_blank">theodoresbbq.com</a>
+        </div>
+        <div class="venue-card">
+          <h3>Dewey's Jazz Lounge</h3>
+          <div class="venue-loc">232 Worthington St, Springfield, MA</div>
+          <p>Dedicated jazz room opened 2021. Live jazz most weekends, pro sound system. The natural home for a jazz combo in Springfield. Call (413) 301-8337 or email <a href="mailto:events@deweyslounge.com" style="color:var(--gold);">events@deweyslounge.com</a>.</p>
+          <a href="https://www.deweyslounge.com/events" target="_blank">deweyslounge.com</a>
+        </div>
+        <div class="venue-card">
+          <h3>Nathan Bill's Bar &amp; Restaurant</h3>
+          <div class="venue-loc">Springfield, MA</div>
+          <p>Well-known for live music. Good-sized room, food and drinks, regular local acts.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="venue-tier">
+      <h3>Pioneer Valley — Northampton, Easthampton, Amherst (45–60 min)</h3>
+      <div class="venue-grid">
+        <div class="venue-card">
+          <h3>Luthier's Co-Op</h3>
+          <div class="venue-loc">108 Cottage St, Easthampton, MA</div>
+          <p>75-cap room, free live music Tue–Sat starting 7pm. Tips + merch (tip bucket provided), 50% off bar tab for band. You do your own promo. Book via <a href="mailto:luthiersbooking@gmail.com" style="color:var(--gold);">luthiersbooking@gmail.com</a> (max 3 months out).</p>
+          <a href="https://www.luthiers-coop.com/booking/" target="_blank">luthiers-coop.com</a>
+        </div>
+        <div class="venue-card">
+          <h3>The Parlor Room</h3>
+          <div class="venue-loc">32 Masonic St, Northampton, MA</div>
+          <p>Intimate 50–80 cap nonprofit listening room. BYOB, all ages, great sound. Submit music + video + MA performance history to <a href="mailto:booking@parlorroom.org" style="color:var(--gold);">booking@parlorroom.org</a>.</p>
+          <a href="https://parlorroom.org/" target="_blank">parlorroom.org</a>
+        </div>
+        <div class="venue-card">
+          <h3>Bishop's Lounge</h3>
+          <div class="venue-loc">41 Strong Ave (3rd floor), Northampton, MA</div>
+          <p>Two floors, two stages. Live bands Fri/Sat, open mics other nights. Operating since 2003. Contact <a href="mailto:bishopslounge@gmail.com" style="color:var(--gold);">bishopslounge@gmail.com</a> or (413) 586-8900.</p>
+          <a href="https://bishopslounge.com/" target="_blank">bishopslounge.com</a>
+        </div>
+        <div class="venue-card">
+          <h3>13th Floor Music Lounge</h3>
+          <div class="venue-loc">Florence, MA</div>
+          <p>Eclectic venue that books a range of styles. Worth a pitch for a jazz night.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="venue-tier">
+      <h3>Central Mass — Worcester &amp; Sturbridge (45–60 min)</h3>
+      <div class="venue-grid">
+        <div class="venue-card">
+          <h3>The Blue Room</h3>
+          <div class="venue-loc">Worcester, MA</div>
+          <p>Jazz-focused venue in Worcester. Natural fit for the repertoire.</p>
+        </div>
+        <div class="venue-card">
+          <h3>Off The Rails</h3>
+          <div class="venue-loc">Worcester, MA</div>
+          <p>Live music + BBQ restaurant. 90 Commercial St. Worth exploring for a jazz dinner set.</p>
+          <a href="https://offtherailsworcester.com/" target="_blank">offtherailsworcester.com</a>
+        </div>
+        <div class="venue-card">
+          <h3>Cedar Street Grille</h3>
+          <div class="venue-loc">Sturbridge, MA</div>
+          <p>Restaurant with live music. Dinner crowd that could appreciate a jazz combo.</p>
+        </div>
+        <div class="venue-card">
+          <h3>Sturbridge Porterhouse</h3>
+          <div class="venue-loc">Sturbridge, MA</div>
+          <p>Steakhouse with entertainment. Classic supper-club vibe for jazz standards.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="venue-tier">
+      <h3>Festivals &amp; Events</h3>
+      <div class="venue-grid">
+        <div class="venue-card">
+          <h3>Springfield Jazz &amp; Roots Festival</h3>
+          <div class="venue-loc">Downtown Springfield — July</div>
+          <p>Free outdoor festival at Stearns Square. Apply to perform — community music is welcomed.</p>
+          <a href="https://springfieldjazzfest.com/" target="_blank">springfieldjazzfest.com</a>
+        </div>
+        <div class="venue-card">
+          <h3>Northampton Jazz Festival</h3>
+          <div class="venue-loc">Downtown Northampton — September</div>
+          <p>Jazz throughout downtown Northampton. Multiple stages, local and regional acts.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MUSICIANS WANTED -->
+<section class="musicians" id="musicians">
+  <div class="container">
+    <h2>Musicians Wanted</h2>
+    <div class="section-rule"></div>
+    <div class="wanted-card">
+      <h3>Looking for a Saxophone Player</h3>
+      <p>We're a trio — tuba (bass lines), drums, guitar — looking for a saxophone player (alto or tenor) to round out the combo. We're also open to piano, vibes, trumpet, clarinet, or any jazz musician who wants to play.</p>
+      <p style="color:var(--muted);">Regular rehearsals, jam sessions, gigs — whatever develops. Based in Monson, with bandmates in Springfield and Wilbraham. Willing to travel across the Pioneer Valley and beyond.</p>
+      <a href="#contact" class="btn btn-primary" style="margin-top:1rem;">Get In Touch</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT / BOOKING -->
+<section class="contact" id="contact">
+  <div class="container">
+    <h2>Book Us / Get In Touch</h2>
+    <div class="section-rule" style="margin-left:auto;margin-right:auto;"></div>
+    <p>Looking for live jazz for your venue, restaurant, private event, wedding, or party? Want to sit in or join the jam session? Drop us a line.</p>
+    <a href="mailto:contact@unjournal.org" class="contact-email">contact@unjournal.org</a>
+    <p style="margin-top:2rem; color:var(--muted); font-size:0.9rem;">Based in Monson, MA — available throughout Western &amp; Central Massachusetts<br>Palmer &bull; Springfield &bull; Northampton &bull; Amherst &bull; Worcester &bull; and beyond</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 GTD Trio &bull; Monson, MA</p>
+</footer>
+
+</body>
+</html>
