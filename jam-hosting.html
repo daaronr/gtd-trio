@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Host a Jazz Jam Session — GTD Trio</title>
+<meta name="description" content="GTD Trio is looking to host a regular jazz jam session at a public venue in Western Massachusetts. Breweries, restaurants, and bars welcome.">
+<style>
+  :root {
+    --gold: #d4a843;
+    --dark: #1a1a2e;
+    --darker: #0f0f1e;
+    --cream: #f5f0e8;
+    --warm-gray: #2a2a3e;
+    --text: #e0ddd5;
+    --muted: #9a9590;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--darker);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(15,15,30,0.95);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    border-bottom: 1px solid rgba(212,168,67,0.2);
+  }
+  nav .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+  nav .logo {
+    font-size: 1.3rem;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  nav .logo a {
+    color: inherit;
+    text-decoration: none;
+  }
+  nav .nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  nav .nav-links a:hover { color: var(--gold); }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; }
+  .container { max-width: 800px; margin: 0 auto; }
+  h1 {
+    font-size: 2.5rem;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+  }
+  h2 {
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+  }
+  .section-rule {
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin-bottom: 2rem;
+  }
+
+  /* PAGE HEADER */
+  .page-header {
+    padding-top: 8rem;
+    padding-bottom: 2rem;
+    background: var(--dark);
+  }
+  .page-header p {
+    color: var(--text);
+    font-size: 1.1rem;
+  }
+
+  /* CONTENT */
+  .content { background: var(--darker); }
+  .content p { margin-bottom: 1.5rem; }
+
+  .benefit-list {
+    list-style: none;
+    margin: 2rem 0;
+  }
+  .benefit-list li {
+    padding: 1rem 0 1rem 2rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    position: relative;
+  }
+  .benefit-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 1.4rem;
+    width: 8px;
+    height: 8px;
+    background: var(--gold);
+    border-radius: 50%;
+  }
+
+  .cta-card {
+    background: linear-gradient(135deg, var(--warm-gray), rgba(212,168,67,0.08));
+    border: 1px solid rgba(212,168,67,0.3);
+    border-radius: 6px;
+    padding: 2.5rem;
+    margin-top: 2rem;
+    text-align: center;
+  }
+  .cta-card h2 {
+    margin-bottom: 1rem;
+  }
+  .cta-card p {
+    margin-bottom: 1.5rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.9rem 2rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-radius: 3px;
+    transition: all 0.3s;
+    font-family: inherit;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--darker);
+    border: 2px solid var(--gold);
+  }
+  .btn-primary:hover { background: transparent; color: var(--gold); }
+
+  .details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+  .detail-item {
+    background: rgba(0,0,0,0.2);
+    padding: 1.5rem;
+    border-radius: 6px;
+  }
+  .detail-item .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--darker);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    text-align: center;
+    padding: 2rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav .nav-links a { margin-left: 1rem; font-size: 0.8rem; }
+    h1 { font-size: 2rem; }
+  }
+  @media (max-width: 500px) {
+    nav .nav-inner { flex-direction: column; gap: 0.8rem; }
+    nav .nav-links { display: flex; flex-wrap: wrap; justify-content: center; }
+    nav .nav-links a { margin: 0 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo"><a href="index.html">GTD Trio</a></div>
+    <div class="nav-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#listen">Listen</a>
+      <a href="index.html#calendar">Gigs</a>
+      <a href="jam-hosting.html">Host a Jam</a>
+      <a href="venues.html">Venues</a>
+      <a href="index.html#contact">Book Us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="container">
+    <h1>Looking for a Jam Session Home</h1>
+    <div class="section-rule"></div>
+    <p>We're searching for a public venue to host a regular jazz jam session in Western Massachusetts.</p>
+  </div>
+</section>
+
+<!-- CONTENT -->
+<section class="content">
+  <div class="container">
+
+    <h2>What We're Looking For</h2>
+    <p>A brewery, restaurant, bar, or community space willing to host a recurring jazz jam session. We bring the musicians, the equipment, and the energy. You provide the space and the audience.</p>
+
+    <div class="details-grid">
+      <div class="detail-item">
+        <div class="label">Format</div>
+        <div>Open jam session — our trio provides the house band, guest musicians sit in</div>
+      </div>
+      <div class="detail-item">
+        <div class="label">Frequency</div>
+        <div>Weekly or bi-weekly, depending on venue preference</div>
+      </div>
+      <div class="detail-item">
+        <div class="label">Duration</div>
+        <div>2-3 hours, typically evening</div>
+      </div>
+      <div class="detail-item">
+        <div class="label">Area</div>
+        <div>Palmer, Monson, Springfield, or surrounding towns</div>
+      </div>
+    </div>
+
+    <h2>Why Host a Jam Session?</h2>
+    <p>A regular jam night brings a unique crowd — musicians, music lovers, and curious locals who want something different from the usual bar scene.</p>
+
+    <ul class="benefit-list">
+      <li><strong>Consistent weekly/bi-weekly event</strong> — Something your regulars can count on and look forward to</li>
+      <li><strong>Musician community</strong> — Jazz players travel to find good jams, bringing new faces (and tabs) to your venue</li>
+      <li><strong>Low cost, high reward</strong> — We're not asking for guarantees; we're looking for a partnership</li>
+      <li><strong>Unique atmosphere</strong> — Live jazz improvisation creates energy that recorded music can't match</li>
+      <li><strong>Local press potential</strong> — "New jazz jam night at [your venue]" is a story worth telling</li>
+    </ul>
+
+    <h2>What We Bring</h2>
+    <p>GTD Trio serves as the house band — guitar, tuba (providing bass lines), and drums. We handle the musical logistics: calling tunes, managing sit-ins, keeping the session moving. We can bring our own small PA if needed, or work with whatever sound setup you have.</p>
+
+    <p>We're flexible on compensation structure — door split, tip jar, food/drink trade, or some combination. The goal is to build something sustainable that works for everyone.</p>
+
+    <div class="cta-card">
+      <h2>Let's Talk</h2>
+      <p>If you run a venue and this sounds interesting, we'd love to chat. No commitment — just a conversation about whether this could work for your space.</p>
+      <a href="mailto:daaronr@gmail.com" class="btn btn-primary">Get In Touch</a>
+      <p style="margin-top:1.5rem; margin-bottom:0; color:var(--muted); font-size:0.9rem;">daaronr@gmail.com</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 <a href="index.html">GTD Trio</a> &bull; Monson, MA</p>
+</footer>
+
+</body>
+</html>

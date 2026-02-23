@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Music Venues — GTD Trio</title>
+<meta name="description" content="Jazz and live music venues in Western and Central Massachusetts. A curated list of spots with live music in the Pioneer Valley, Springfield, Worcester, and beyond.">
+<style>
+  :root {
+    --gold: #d4a843;
+    --dark: #1a1a2e;
+    --darker: #0f0f1e;
+    --cream: #f5f0e8;
+    --warm-gray: #2a2a3e;
+    --text: #e0ddd5;
+    --muted: #9a9590;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Georgia', 'Times New Roman', serif;
+    background: var(--darker);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: rgba(15,15,30,0.95);
+    backdrop-filter: blur(10px);
+    z-index: 100;
+    border-bottom: 1px solid rgba(212,168,67,0.2);
+  }
+  nav .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
+  nav .logo {
+    font-size: 1.3rem;
+    color: var(--gold);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  nav .logo a {
+    color: inherit;
+    text-decoration: none;
+  }
+  nav .nav-links a {
+    color: var(--text);
+    text-decoration: none;
+    margin-left: 2rem;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  nav .nav-links a:hover { color: var(--gold); }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; }
+  .container { max-width: 1000px; margin: 0 auto; }
+  h1 {
+    font-size: 2.5rem;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+  }
+  h2 {
+    font-size: 2rem;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+    letter-spacing: 2px;
+  }
+  .section-rule {
+    width: 60px;
+    height: 2px;
+    background: var(--gold);
+    margin-bottom: 2rem;
+  }
+
+  /* PAGE HEADER */
+  .page-header {
+    padding-top: 8rem;
+    padding-bottom: 2rem;
+    background: var(--dark);
+  }
+  .page-header p {
+    color: var(--muted);
+    max-width: 700px;
+  }
+
+  /* VENUES */
+  .venues { background: var(--darker); }
+  .venue-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+  .venue-card {
+    background: var(--warm-gray);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 6px;
+    padding: 1.5rem;
+    transition: border-color 0.3s;
+  }
+  .venue-card:hover { border-color: rgba(212,168,67,0.3); }
+  .venue-card h3 { color: var(--cream); font-size: 1rem; margin-bottom: 0.3rem; }
+  .venue-card .venue-loc { color: var(--gold); font-size: 0.8rem; letter-spacing: 1px; margin-bottom: 0.6rem; }
+  .venue-card p { color: var(--muted); font-size: 0.9rem; }
+  .venue-card a { color: var(--gold); text-decoration: none; font-size: 0.85rem; }
+  .venue-card a:hover { text-decoration: underline; }
+  .venue-tier {
+    margin-top: 2.5rem;
+  }
+  .venue-tier:first-child {
+    margin-top: 0;
+  }
+  .venue-tier h3 {
+    color: var(--gold);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--darker);
+    border-top: 1px solid rgba(255,255,255,0.05);
+    text-align: center;
+    padding: 2rem;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav .nav-links a { margin-left: 1rem; font-size: 0.8rem; }
+    h1 { font-size: 2rem; }
+  }
+  @media (max-width: 500px) {
+    nav .nav-inner { flex-direction: column; gap: 0.8rem; }
+    nav .nav-links { display: flex; flex-wrap: wrap; justify-content: center; }
+    nav .nav-links a { margin: 0 0.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="logo"><a href="index.html">GTD Trio</a></div>
+    <div class="nav-links">
+      <a href="index.html#about">About</a>
+      <a href="index.html#listen">Listen</a>
+      <a href="index.html#calendar">Gigs</a>
+      <a href="jam-hosting.html">Host a Jam</a>
+      <a href="venues.html">Venues</a>
+      <a href="index.html#contact">Book Us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<section class="page-header">
+  <div class="container">
+    <h1>Live Music Venues</h1>
+    <div class="section-rule"></div>
+    <p>A curated list of venues with live music across Western and Central Massachusetts. This is our research into where jazz and live music happens in the region — not a list of places we've played. If you run a venue and want live jazz, <a href="index.html#contact" style="color:var(--gold);">let's talk</a>.</p>
+  </div>
+</section>
+
+<!-- VENUES -->
+<section class="venues">
+  <div class="container">
+
+    <div class="venue-tier">
+      <h3>Palmer &amp; Monson Area</h3>
+      <div class="venue-grid">
+        <div class="venue-card">
+          <h3>Seven Railroads Brewing Co.</h3>
+          <div class="venue-loc">1235 Park St, Palmer, MA</div>
+          <p>Cozy taproom with a dedicated live music corner. The owners are music lovers. Booking: <a href="mailto:mike@sevenrailroads.beer" style="color:var(--gold);">mike@sevenrailroads.beer</a></p>
+          <a href="https://www.sevenrailroads.beer/events" target="_blank">sevenrailroads.beer/events</a>
+        </div>
+        <div class="venue-card">
+          <h3>Steaming Tender Restaurant</h3>
+          <div class="venue-loc">28 Depot St, Palmer, MA</div>
+          <p>#1-rated restaurant in Palmer. Historic train station. Patio music in season (they've hosted swing bands). Thu-Sun, upscale dinner crowd. Call (413) 283-2744.</p>
+          <a href="https://www.steamingtender.com/events/" target="_blank">steamingtender.com</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="venue-tier">
+      <h3>Springfield &amp; Surrounds</h3>
+      <div class="venue-grid">
+        <div class="venue-card">
+          <h3>Theodore's Blues, Booze &amp; BBQ</h3>
+          <div class="venue-loc">201 Worthington St, Springfield, MA</div>
+          <p>Named "Best Blues Club in the Country" (Blues Foundation KBA Award). ~300 capacity. Books nightly. Email <a href="mailto:mgmt@theodoresbbq.com" style="color:var(--gold);">mgmt@theodoresbbq.com</a> or call (413) 736-6000.</p>
+          <a href="https://theodoresbbq.com/blues/" target="_blank">theodoresbbq.com</a>
+        </div>
+        <div class="venue-card">
+          <h3>Dewey's Jazz Lounge</h3>
+          <div class="venue-loc">232 Worthington St, Springfield, MA</div>
+          <p>Dedicated jazz room opened 2021. Live jazz most weekends, pro sound system. Call (413) 301-8337 or email <a href="mailto:events@deweyslounge.com" style="color:var(--gold);">events@deweyslounge.com</a>.</p>
+          <a href="https://www.deweyslounge.com/events" target="_blank">deweyslounge.com</a>
+        </div>
+        <div class="venue-card">
+          <h3>Nathan Bill's Bar &amp; Restaurant</h3>
+          <div class="venue-loc">Springfield, MA</div>
+          <p>Well-known for live music. Good-sized room, food and drinks, regular local acts.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="venue-tier">
+      <h3>Pioneer Valley — Northampton, Easthampton, Amherst</h3>
+      <div class="venue-grid">
+        <div class="venue-card">
+          <h3>Luthier's Co-Op</h3>
+          <div class="venue-loc">108 Cottage St, Easthampton, MA</div>
+          <p>75-cap room, free live music Tue-Sat starting 7pm. Tips + merch (tip bucket provided), 50% off bar tab for band. Book via <a href="mailto:luthiersbooking@gmail.com" style="color:var(--gold);">luthiersbooking@gmail.com</a> (max 3 months out).</p>
+          <a href="https://www.luthiers-coop.com/booking/" target="_blank">luthiers-coop.com</a>
+        </div>
+        <div class="venue-card">
+          <h3>The Parlor Room</h3>
+          <div class="venue-loc">32 Masonic St, Northampton, MA</div>
+          <p>Intimate 50-80 cap nonprofit listening room. BYOB, all ages, great sound. Submit music + video + MA performance history to <a href="mailto:booking@parlorroom.org" style="color:var(--gold);">booking@parlorroom.org</a>.</p>
+          <a href="https://parlorroom.org/" target="_blank">parlorroom.org</a>
+        </div>
+        <div class="venue-card">
+          <h3>Bishop's Lounge</h3>
+          <div class="venue-loc">41 Strong Ave (3rd floor), Northampton, MA</div>
+          <p>Two floors, two stages. Live bands Fri/Sat, open mics other nights. Operating since 2003. Contact <a href="mailto:bishopslounge@gmail.com" style="color:var(--gold);">bishopslounge@gmail.com</a> or (413) 586-8900.</p>
+          <a href="https://bishopslounge.com/" target="_blank">bishopslounge.com</a>
+        </div>
+        <div class="venue-card">
+          <h3>13th Floor Music Lounge</h3>
+          <div class="venue-loc">Florence, MA</div>
+          <p>Eclectic venue that books a range of styles. Worth a pitch for a jazz night.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="venue-tier">
+      <h3>Central Mass — Worcester &amp; Sturbridge</h3>
+      <div class="venue-grid">
+        <div class="venue-card">
+          <h3>The Blue Room</h3>
+          <div class="venue-loc">Worcester, MA</div>
+          <p>Jazz-focused venue in Worcester. Natural fit for jazz repertoire.</p>
+        </div>
+        <div class="venue-card">
+          <h3>Off The Rails</h3>
+          <div class="venue-loc">90 Commercial St, Worcester, MA</div>
+          <p>Live music + BBQ restaurant. Worth exploring for a jazz dinner set.</p>
+          <a href="https://offtherailsworcester.com/" target="_blank">offtherailsworcester.com</a>
+        </div>
+        <div class="venue-card">
+          <h3>Cedar Street Grille</h3>
+          <div class="venue-loc">Sturbridge, MA</div>
+          <p>Restaurant with live music. Dinner crowd that could appreciate a jazz combo.</p>
+        </div>
+        <div class="venue-card">
+          <h3>Sturbridge Porterhouse</h3>
+          <div class="venue-loc">Sturbridge, MA</div>
+          <p>Steakhouse with entertainment. Classic supper-club vibe for jazz standards.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="venue-tier">
+      <h3>Festivals &amp; Events</h3>
+      <div class="venue-grid">
+        <div class="venue-card">
+          <h3>Springfield Jazz &amp; Roots Festival</h3>
+          <div class="venue-loc">Downtown Springfield — July</div>
+          <p>Free outdoor festival at Stearns Square. Apply to perform — community music is welcomed.</p>
+          <a href="https://springfieldjazzfest.com/" target="_blank">springfieldjazzfest.com</a>
+        </div>
+        <div class="venue-card">
+          <h3>Northampton Jazz Festival</h3>
+          <div class="venue-loc">Downtown Northampton — September</div>
+          <p>Jazz throughout downtown Northampton. Multiple stages, local and regional acts.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 <a href="index.html">GTD Trio</a> &bull; Monson, MA</p>
+</footer>
+
+</body>
+</html>
